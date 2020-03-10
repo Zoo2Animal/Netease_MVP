@@ -11,10 +11,10 @@ import com.mayue.neteasemvp.bean.DemoBean;
  * M 层对象具体实现，持有 P 层对象 DemoPresenter,合同接口 DemoContract.DemoModel
  * 持有的 P 层对象是构造器传入的，即在 P 层决定了要哪一个 Model 对象，体现了 P 层业务控制者的角色
  */
-class DemoModel extends BaseModel<DemoPresenter, DemoContract.DemoModel> {
+class DemoModel extends BaseModel<DemoActivityPresenter, DemoContract.DemoModel> {
 
 
-	DemoModel(DemoPresenter presenter) {
+	DemoModel(DemoActivityPresenter presenter) {
 		super(presenter);
 
 	}

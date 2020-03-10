@@ -21,7 +21,7 @@ import java.lang.ref.WeakReference;
  * @param <M>        M 层对象
  * @param <CONTRACT> 契约接口，规定子 Presenter 对象具体的业务逻辑
  */
-public abstract class BasePresenter<V extends BaseView, M extends BaseModel, CONTRACT> {
+public abstract class BaseActivityPresenter<V extends BaseActivityView, M extends BaseModel, CONTRACT> {
 
 	//<editor-fold desc="fields">
 	/**
@@ -43,7 +43,7 @@ public abstract class BasePresenter<V extends BaseView, M extends BaseModel, CON
 	/**
 	 * 需要初始化 M 层对象，但具体的是哪个对象由子类决定创建
 	 */
-	public BasePresenter() {
+	public BaseActivityPresenter() {
 		model = setModel();
 	}
 	//</editor-fold>

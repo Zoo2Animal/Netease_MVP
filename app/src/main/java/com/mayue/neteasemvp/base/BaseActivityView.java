@@ -1,22 +1,27 @@
 package com.mayue.neteasemvp.base;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public abstract class BaseView<P extends BasePresenter,CONTRACT> extends AppCompatActivity {
+public abstract class BaseActivityView<P extends BaseActivityPresenter,CONTRACT> extends AppCompatActivity {
 
+	//<editor-fold desc="fields">
 	private P presenter;
+
+	private Handler handler = new Handler(getMainLooper());
+	//</editor-fold>
 
 	//<editor-fold desc="lifecycle">
 	@SuppressWarnings("unchecked")
 	// Unchecked call to bindView(V) as a member of raw type 'com.mayue.module.neteasemvp.base.BasePresenter'
-	// 在 V 层创建的时候，需要 P 层绑定
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		presenter = setPresenter();
+		// 在 V 层创建的时候，需要 P 绑定
 		presenter.bindView(this);
 	}
 
@@ -24,8 +29,13 @@ public abstract class BaseView<P extends BasePresenter,CONTRACT> extends AppComp
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		// 解绑
 		presenter.UnbindView();
-
+		// handler 释放
+		if (handler != null) {
+			handler.removeCallbacksAndMessages(null);
+			handler = null;
+		}
 	}
 	//</editor-fold>
 
@@ -46,8 +56,13 @@ public abstract class BaseView<P extends BasePresenter,CONTRACT> extends AppComp
 	//</editor-fold>
 
 
-	// p.getter
+	//<editor-fold desc="getter">
 	public P getPresenter() {
 		return presenter;
 	}
+
+	public Handler getHandler() {
+		return handler;
+	}
+	//</editor-fold>
 }

@@ -1,7 +1,7 @@
 package com.mayue.neteasemvp.demo;
 
 
-import com.mayue.neteasemvp.base.BasePresenter;
+import com.mayue.neteasemvp.base.BaseActivityPresenter;
 import com.mayue.neteasemvp.bean.DemoBean;
 
 /**
@@ -10,7 +10,7 @@ import com.mayue.neteasemvp.bean.DemoBean;
  *  具体的业务描述可以参考 DemoContract.DemoPresenter 接口注释
  *  可以看到，有了 合同接口 DemoContract.DemoPresenter ， P 层的实现类非常干净，实现对应的方法即可。
  */
-public class DemoPresenter extends BasePresenter<DemoActivity, DemoModel, DemoContract.DemoPresenter> {
+public class DemoActivityPresenter extends BaseActivityPresenter<DemoActivity, DemoModel, DemoContract.DemoPresenter> {
 
 	@Override
 	protected DemoModel setModel() {

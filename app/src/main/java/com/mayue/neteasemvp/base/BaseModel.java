@@ -12,7 +12,7 @@ package com.mayue.neteasemvp.base;
  * @param <P>           presenter 对象，M 层依赖的 P 层对象，继承于 BasePresenter
  * @param <CONTRACT>    CONTRACT 接口，即 MVP 中的契约接口，其规定了各层之间需要实现的具体业务
  */
-public abstract class BaseModel<P extends BasePresenter,CONTRACT> {
+public abstract class BaseModel<P extends BaseActivityPresenter,CONTRACT> {
 
 	// 持有的 presenter 对象
 	private P presenter;

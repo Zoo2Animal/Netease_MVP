@@ -10,14 +10,14 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.mayue.neteasemvp.R;
-import com.mayue.neteasemvp.base.BaseView;
+import com.mayue.neteasemvp.base.BaseActivityView;
 import com.mayue.neteasemvp.bean.DemoBean;
 
 /**
  * created by matthew,2020-03-09
  * V 层具体的实现，这里就是 Activity，也可以是 Fragment，后续版本添加 Fragment 的实现
  */
-public class DemoActivity extends BaseView<DemoPresenter,DemoContract.DemoView> {
+public class DemoActivity extends BaseActivityView<DemoActivityPresenter,DemoContract.DemoView> {
 
 	private TextView textView;
 	private Handler handler = new Handler(Looper.getMainLooper());
@@ -49,9 +49,9 @@ public class DemoActivity extends BaseView<DemoPresenter,DemoContract.DemoView> 
 
 	//<editor-fold desc="presenter creator">
 	@Override
-	protected DemoPresenter setPresenter() {
+	protected DemoActivityPresenter setPresenter() {
 		// 指定 V 层所依赖的哪一个具体的 P 对象
-		return new DemoPresenter();
+		return new DemoActivityPresenter();
 	}
 	//</editor-fold>
 
